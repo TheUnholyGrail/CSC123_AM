@@ -2,7 +2,7 @@ package main_package;
 import java.util.Scanner;
 
 public class TempConverter {
-
+	//Alejandro Morales (amorales298@toromail.csudh.edu)
 	public static void main(String[] args) {
 		//OBJ: Write a program that will convert temperatures between Celsius and Fahrenheit.
 		Scanner userInput = new Scanner(System.in);
