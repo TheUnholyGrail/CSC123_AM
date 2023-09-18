@@ -1,4 +1,4 @@
-package main_package;
+package main_package.Assignmnet1;
 import java.util.Scanner;
 
 public class Grader {
