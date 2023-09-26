@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 public class BankAccount {
 	//Fields
-	private String name;
-	private short accountNumber;
+	private static String name = "Default Name";
+	private int accountNumber;
 	private boolean open = true; //Determine wether account is open or closed
 	private ArrayList<Double> transactions = new ArrayList<Double>();
-	//Constructors
-	public BankAccount() {
-		
+	//Constructor
+	public BankAccount(String name, int accNum) {
+		name = this.name;	//Prints obj's name defined in the field
+		accountNumber = accNum;
 	}
-	
+	//Methods	
 	public void deposit(double amount) {
 		if(isOpen()) {
 			transactions.add(amount);
@@ -31,6 +32,7 @@ public class BankAccount {
 	}
 	
 	public void printStatement() {
+		System.out.print(name + "\n");
 		for(double d: transactions) {
 			System.out.println(d);
 		}

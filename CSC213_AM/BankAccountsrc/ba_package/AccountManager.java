@@ -3,16 +3,11 @@ public class AccountManager {
 
 	public static void main(String[] args) {
 		//Start Here
-		//Create Bank Account
-		BankAccount myAccount = new BankAccount();
 		
-		myAccount.deposit(1000);
-		myAccount.deposit(100.75);
-		myAccount.withdraw(20);
+		//Create Bank Account
+		BankAccount myAccount = new BankAccount("Tim", 15);
+		myAccount.deposit(100);
 		myAccount.printStatement();
-		System.out.println(myAccount.balance());
-		myAccount.close();
-		System.out.println(myAccount.isOpen());
 	}
 
 }
