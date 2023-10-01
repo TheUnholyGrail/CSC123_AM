@@ -1,4 +1,5 @@
-package main_package.classwork;
+package classwork;
+
 public class Airplane {
 	//Fields
 	private double fuel;	//Fuel for the plane to use

@@ -1,4 +1,4 @@
-package main_package.classwork;
+package classwork;
 
 public class Car {
 	//Fields
