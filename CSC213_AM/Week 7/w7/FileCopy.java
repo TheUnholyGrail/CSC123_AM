@@ -12,7 +12,7 @@ public class FileCopy {
 		//Objectives: Copy text from one file onto another
 		//String data = "Some info that needs to be inputted in a file";
 		String sourceFile = "C:\\Users\\a7mor\\OneDrive\\Desktop\\SOURCE_FILE.txt";
-		String targetFile = "C:\\Users\\a7mor\\OneDrive\\Desktop\\TEST_FILE.txt";
+		String targetFile = "C:\\Users\\a7mor\\OneDrive\\Desktop\\TARGET_FILE.txt";
 		
 		File srcFile = new File(sourceFile);
 		File tfFile = new File(targetFile);
