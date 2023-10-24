@@ -1,5 +1,5 @@
 package main_package.Assignment3;
-
+//Alejandro Morales (amorales298@toromail.csudh.edu)
 public class Item {
 	//Fields
 	protected String name;

@@ -1,5 +1,6 @@
 package main_package.Assignment3;
 import java.util.ArrayList;
+//Alejandro Morales (amorales298@toromail.csudh.edu)
 public class ShoppingCart {
 	//Fields
 	ArrayList<Item> cart = new ArrayList<Item>();	

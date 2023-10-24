@@ -1,5 +1,5 @@
 package main_package.Assignment3;
-
+//Alejandro Morales (amorales298@toromail.csudh.edu)
 public class Food extends Item{
 	//Fields
 	private String sellBy;
