@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-public class FileReader1 {
+public class FileReader1 {	//New piece of code: one file that reads and eliminating duplicates; then write the new stuff into another file
+	//reading the file and sorts it alphabetically then pastes onto another file
 
 	public static void main(String[] args) {
 		//Start

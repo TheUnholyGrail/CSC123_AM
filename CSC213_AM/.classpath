@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="Week5"/>
 	<classpathentry kind="src" path="Week 4"/>
 	<classpathentry kind="src" path="Week 7"/>
+	<classpathentry kind="src" path="Week 10"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
