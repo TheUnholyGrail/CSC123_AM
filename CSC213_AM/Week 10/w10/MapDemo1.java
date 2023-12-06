@@ -52,6 +52,7 @@ public class MapDemo1 {
 		for(Map m: students) {
 			System.out.println(m);
 		}
+		System.out.println(keys);
 		
 
 	}
