@@ -1,6 +1,6 @@
 package com.amg.csudh.bank.core;
 import java.util.Date;
-public class Client {
+public class AccountHolder {
 	//Fields
 	//These variables are strings as they do not serve a greater purpose
 	protected String name;	
@@ -9,7 +9,7 @@ public class Client {
 	
 	protected Date dob;	//Date of Birth - date obj
 	//Constructor
-	public Client(String name, String SSN, String address, Date dob)
+	public AccountHolder(String name, String SSN, String address, Date dob)
 	{
 		this.name = name;
 		this.SSN = SSN;
