@@ -15,6 +15,7 @@ public class BankManager {
 		//Start
 		Scanner userInput = new Scanner(System.in);
 		do {
+			//Menu
 			System.out.println("1 - Open a Checking Accout");
 			System.out.println("2 - Open a Saving Accout");
 			System.out.println("3 - List Accounts");
@@ -26,25 +27,37 @@ public class BankManager {
 			int choice = userInput.nextInt();
 			switch(choice) 
 			{
-			case 1:
+			case 1:	//Checking Account Option
 				System.out.println("Enter first name: ");
 				String fName = userInput.next();
 				System.out.println("Enter last name: ");
 				String lName = userInput.next();
 				System.out.println("Enter Social Security Number: ");
 				String ssn = userInput.next();
-				System.out.println("Enter date of birth(mm/dd/yy): ");
+				System.out.println("Enter date of birth(mm/dd/yyyy): ");
 				String dob = userInput.next();
 				AccountHolder client = new AccountHolder(fName+" "+lName,ssn,null,strToDate(dob));
-				if(client.findAge() >= 16) {
-					//Create Savings Account
-					//Overdraft limit?
+				if(client.getAge() >= 18) {
+					//Create Checking Account
+					System.out.println("Enter overdraft limit: ");
+					int overdraftLim = userInput.nextInt();
+					CheckingAccount cAccount = new CheckingAccount(client, overdraftLim);
+					cAccount.setBankID(Account.createBankID());
+					System.out.println("Thank you, the account number is: " + cAccount.getBankID());
+				} else if(client.getAge() >= 16) {
+					//Create Checking Account
+					CheckingAccount cAccount = new CheckingAccount(client);
+					cAccount.setBankID(Account.createBankID());
+					System.out.println("Thank you, the account number is: " + cAccount.getBankID());
 				} else {
 					System.out.println("This person is too young to have a savings account.");
+					client = null;
 				}
-				
 				break;
-			case 8:
+			case 2:	//Savings Account Option
+				System.out.println();
+				break;
+			case 8:	//Exit
 				System.exit(0);
 				break;
 			default:
@@ -55,12 +68,12 @@ public class BankManager {
 			//Deposit Funds
 			//Withdraw Funds
 			//Close an Account
-			//Exit
 		}while(true);
 		
 		
 		
 	}
+	//TODO: Figure out proper garbage collection
 	//Other Methods
 	public static Date strToDate(String dob) {	//Converts User Input into a date object
 		Date cDob = null;
@@ -71,7 +84,8 @@ public class BankManager {
 			 System.out.println("The date of birth you inputted is invalid");
 			 //Returns null
 		}
-		//if statement
+		//if statement- or have the user input a proper date or go back to menu
 		return cDob;
 	}
+	
 }

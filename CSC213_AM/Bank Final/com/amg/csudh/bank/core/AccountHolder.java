@@ -17,8 +17,7 @@ public class AccountHolder {
 		this.dob = dob;
 	}
 	//Methods
-	
-	public int findAge() {
+	public int getAge() {
 		final long MS_TO_YEARS = 31556952000L;	//Years to ms ratio
 		Date currentDate = new Date();	//Current Date
 		
@@ -26,4 +25,6 @@ public class AccountHolder {
 		int age = (int)((currentDate.getTime()- dob.getTime())/MS_TO_YEARS);
 		return age;
 	}
+	//Extra
+	
 }
