@@ -26,5 +26,9 @@ public class AccountHolder {
 		return age;
 	}
 	//Extra
+	@Override
 	
+	public String toString() {
+		return ": " + name.replaceAll(" ", " : ")+ " : " + SSN;
+	}
 }

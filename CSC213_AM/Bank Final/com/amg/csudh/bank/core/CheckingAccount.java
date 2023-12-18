@@ -12,4 +12,10 @@ public class CheckingAccount extends Account{
 		this.accHolder = accHolder;
 	}
 	//Methods
+	
+	//Extra
+	@Override
+	public String toString() {
+		return accountID + " (Checking) " + accHolder + String.format(": %.2f", balance) + " : Account " + getStatus(isOpen);
+	}
 }
