@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Bank {
 	//Fields
 		ArrayList<Account> accounts = new ArrayList<Account>();
-		//Currency obj
 	//Constructor
 		public Bank() {
 			
@@ -19,12 +18,12 @@ public class Bank {
 			if(targetAccount != null) {
 				//Close Account
 				targetAccount.setStatus(false);
-				System.out.println("Account closed, current balance is: " + targetAccount.getBalance());
+				System.out.println("Account closed, current balance is: " + String.format(": %.2f", targetAccount.getBalance()));
 			} else {
 				System.out.println("Account not found.");
 			}
 		}
-		public void deposit(String accountID, double dAmount) {		//TODO: Missing Transactions
+		public void deposit(String accountID, double dAmount) {
 			//Find the account
 			Account targetAccount = findAccount(accountID);
 			//
@@ -33,7 +32,10 @@ public class Bank {
 				if(targetAccount.getStatus() == true || (targetAccount.getStatus() == false && targetAccount.getBalance() <= 0)) {
 					//Deposit Authorized
 					targetAccount.setBalance(targetAccount.getBalance() + dAmount);
-					System.out.println("Deposit successful, the new balance is: " + targetAccount.getBalance());
+					System.out.println("Deposit successful, the new balance is: " + String.format(": %.2f", targetAccount.getBalance()));
+					CreditTransaction db = new CreditTransaction(dAmount);
+		            db.setTransID(Transaction.createTransID());
+		            targetAccount.addTransaction(db);
 				} else {
 					System.out.println("Deposit Failed. The account is not open.");
 				}
@@ -48,16 +50,19 @@ public class Bank {
 			if(targetAccount != null) {
 				// Check if the account was found
 			        // Check withdrawal conditions
-			        if ((targetAccount instanceof CheckingAccount) &&
-			                (targetAccount.getStatus() == true &&
-			                        targetAccount.getBalance() - wAmount >= -((CheckingAccount) targetAccount).getOverDraftLimit()) ||
-			                (targetAccount instanceof SavingAccount &&
-			                        targetAccount.getStatus() == true && targetAccount.getBalance() >= wAmount)) {
+			        if ((targetAccount instanceof CheckingAccount)  &&
+			                ((targetAccount.getStatus() == true && targetAccount.getBalance() - wAmount >= -((CheckingAccount) targetAccount).getOverDraftLimit()) ||
+			                        (targetAccount.getStatus() == false && targetAccount.getBalance() >= wAmount)) ||
+			                (targetAccount instanceof SavingAccount && (targetAccount.getStatus() == true && targetAccount.getBalance() >= wAmount ||
+			                targetAccount.getStatus() == false && targetAccount.getBalance() - wAmount >= 0))) {
 			            // Withdrawal is authorized
 			            targetAccount.setBalance(targetAccount.getBalance() - wAmount);
-			            System.out.println("Withdrawal successful, the new balance is: " + targetAccount.getBalance());
+			            System.out.println("Withdrawal successful, the new balance is: " + String.format(": %.2f", targetAccount.getBalance()));
+			            DebitTransaction db = new DebitTransaction(wAmount);
+			            db.setTransID(Transaction.createTransID());
+			            targetAccount.addTransaction(db);
 			        } else {
-			            System.out.println("Withdrawal failed, the balance is: " + targetAccount.getBalance());
+			            System.out.println("Withdrawal failed, the balance is: " + String.format(": %.2f", targetAccount.getBalance()));
 			        }
 			}else {
 				System.out.println("Account not found.");
@@ -84,6 +89,6 @@ public class Bank {
 			}
 			return null;
 		}
-		//Maybe Currency Stuff
+
 	//Extra
 }

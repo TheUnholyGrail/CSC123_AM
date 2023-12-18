@@ -12,6 +12,6 @@ public class DebitTransaction extends Transaction{
 	//Extra
 	@Override
 	public String toString() {
-		return transID + " : Debit : " + amount;
+		return transID + " : Debit : " + String.format("%.2f", amount);
 	}
 }

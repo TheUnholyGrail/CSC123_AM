@@ -29,6 +29,6 @@ public class AccountHolder {
 	@Override
 	
 	public String toString() {
-		return ": " + name.replaceAll(" ", " : ")+ " : " + SSN;
+		return ": " + name.replaceAll(" ", " : ")+ " : " + SSN + " ";
 	}
 }

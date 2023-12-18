@@ -12,6 +12,6 @@ public class CreditTransaction extends Transaction{
 	//Extra
 	@Override
 	public String toString() {
-		return transID + " : Credit : " + amount;
+		return transID + " : Credit : " + String.format("%.2f", amount);
 	}
 }

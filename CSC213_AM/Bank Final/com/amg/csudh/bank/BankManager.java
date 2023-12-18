@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class BankManager {
 
 	public static void main(String[] args) throws ParseException{
-		//Import packages and run the program
-			//Create bank object
+		//Create bank object
 		Bank bank = new Bank();
 		
 		//Start
@@ -47,6 +46,7 @@ public class BankManager {
 				break;
 			case 7:	//Close Account
 				choiceSeven(userInput, bank);
+				break;
 			case 8:	//Exit
 				System.exit(0);
 				break;
