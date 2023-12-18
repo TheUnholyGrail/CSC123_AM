@@ -14,6 +14,9 @@ public class Account {
 	
 	private static long idCounter = 1000;
 	//Constructor
+	public Account() {
+		
+	}
 	//Method
 	public static String createBankID() {
 		return String.valueOf(++idCounter);
@@ -25,7 +28,15 @@ public class Account {
 		return accountID;
 	}
 	
-	public static String getStatus(boolean isOpen) {
+	public double getBalance() {
+		return this.balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	
+	
+	public static String getS(boolean isOpen) {	//Due for change?
 		String status;
 		if(isOpen == true) {
 			status = "Open";
@@ -34,6 +45,12 @@ public class Account {
 		}
 		return status;
 	}
+	public void setStatus(boolean newStatus) {
+		this.isOpen = newStatus;
+	}
+	public boolean getStatus() {
+		return this.isOpen;
+	}
 	public void addTransaction(Transaction transaction) {
 		this.transactions.add(transaction);
 	}
@@ -41,7 +58,8 @@ public class Account {
 		for(Transaction t: this.transactions) {
 			System.out.println(t);
 		}
+		System.out.printf("\nBalance: %.2f\n", balance);
 	}
-	//List transactions in a for loop
+	
 }
 	

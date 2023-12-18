@@ -12,10 +12,12 @@ public class CheckingAccount extends Account{
 		this.accHolder = accHolder;
 	}
 	//Methods
-	
+	public int getOverDraftLimit() {
+		return this.overdraftLimit;
+	}
 	//Extra
 	@Override
 	public String toString() {
-		return accountID + " (Checking) " + accHolder + String.format(": %.2f", balance) + " : Account " + getStatus(isOpen);
+		return accountID + " (Checking) " + accHolder + String.format(": %.2f", balance) + " : Account " + getS(isOpen);
 	}
 }

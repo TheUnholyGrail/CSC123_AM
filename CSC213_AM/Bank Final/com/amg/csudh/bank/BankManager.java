@@ -39,20 +39,25 @@ public class BankManager {
 			case 4: //Account Statement
 				choiceFour(userInput, bank);
 				break;
+			case 5:	//Deposit Funds
+				choiceFive(userInput, bank);
+				break;
+			case 6:	//Withdraw Funds
+				choiceSix(userInput, bank);
+				break;
+			case 7:	//Close Account
+				choiceSeven(userInput, bank);
 			case 8:	//Exit
 				System.exit(0);
 				break;
 			default:
 			}
-			//Deposit Funds
-			//Withdraw Funds
-			//Close an Account
 		}while(true);
 		
 		
 		
 	}
-	//TODO: Figure out proper garbage collection
+	//Methods
 	public static AccountHolder createAccHolder(Scanner userInput) {	//Returns an Account Holder object
 		System.out.println("Enter first name: ");
 		String fName = userInput.next();
@@ -117,5 +122,24 @@ public class BankManager {
 		System.out.println("Enter account number: ");
 		String accID = userInput.next();
 		bank.accountStatement(accID);
+	}
+	public static void choiceFive(Scanner userInput, Bank bank) {
+		System.out.println("Enter account number: ");
+		String accID = userInput.next();
+		System.out.println("Enter the amount to deposit: ");
+		double dAmount = userInput.nextDouble();
+		bank.deposit(accID, dAmount);
+	}
+	public static void choiceSix(Scanner userInput, Bank bank) {
+		System.out.println("Enter account number: ");
+		String accID = userInput.next();
+		System.out.println("Enter the amount to withdraw: ");
+		double wAmount = userInput.nextDouble();
+		bank.withdraw(accID, wAmount);
+	}
+	public static void choiceSeven(Scanner userInput, Bank bank) {
+		System.out.println("Enter an account number to close: ");
+		String accountID = userInput.next();
+		bank.closeAccount(accountID);
 	}
 }

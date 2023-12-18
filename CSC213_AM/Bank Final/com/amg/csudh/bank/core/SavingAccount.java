@@ -10,6 +10,6 @@ public class SavingAccount extends Account{
 	//Extra
 	@Override
 	public String toString() {
-		return accountID + " (Saving) " + accHolder + String.format(": %.2f", balance) + " : Account " + getStatus(isOpen);
+		return accountID + " (Saving) " + accHolder + String.format(": %.2f", balance) + " : Account " + getS(isOpen);
 	}
 }

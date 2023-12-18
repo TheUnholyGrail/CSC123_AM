@@ -6,14 +6,17 @@ public class Transaction {
 	String transID;
 	private static long idCounter = 0;
 	//Constructor
+	public Transaction(double amount) {
+		this.amount = amount;
+	}
 	//Methods
 	public static String createTransID() {
 		return String.valueOf(++idCounter);
 	}
-	public void setBankID(String transID) {
+	public void setTransID(String transID) {
 		this.transID = transID;
 	}
-	public String getBankID() {
+	public String getTransID() {
 		return transID;
 	}
 	public double getAmount() {
